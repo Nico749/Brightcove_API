@@ -42,20 +42,6 @@ def get_video_views_by_date(video_id, access_token, start_date, end_date):
         print(f"Request error: {e}")
         return []
 
-def get_video_metadata(video_id, access_token):
-    url = f'https://cms.api.brightcove.com/v1/accounts/{account_id}/videos/{video_id}'
-    headers = {
-        'Authorization': f'Bearer {access_token}'
-    }
-    
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        return response.json()
-    except requests.RequestException as e:
-        print(f"Request error: {e}")
-        return {}
-
 def get_all_videos_metadata(access_token):
     url = f'https://cms.api.brightcove.com/v1/accounts/{account_id}/videos'
     headers = {
